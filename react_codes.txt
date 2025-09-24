@@ -1,0 +1,112 @@
+//grid view in the react
+<div className="grid grid-cols-2 gap-4 p-4 max-w-lg mx-auto">
+            {items.map((item, index) => (
+                <div key={index} className="bg-white shadow-lg rounded-lg p-6 text-center">
+                    {item}
+                </div>
+            ))}
+        </div>
+        
+//how to send data from front end to backend
+import React, { useState } from 'react';
+
+export default function CreateUserForm() {
+  const [name, setName] = useState('Riya Iyer');
+  const [email, setEmail] = useState('meera.iyer@example.org');
+  const [number, setNumber] = useState(918888777766);
+  const [bookIds, setBookIds] = useState([]); // comma-separated -> array
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+
+  // In real apps, get this from auth flow or storage
+  const token = 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiUml5YSBCaXN3YXMiLCJpYXQiOjE3NTg2MjMxMTcsImV4cCI6MTc1ODczMTExN30.AILN3gc1dQrWR_CallFiD9kJ-_y8eU7cmXO3cpDe6VQ';
+
+  const createUser = async () => {
+    setLoading(true);
+    setError(null);
+    setResult(null);
+
+    // Convert any UI input into the expected payload
+    const payload = {
+      name,
+      email,
+      number: Number(number),
+      bookIds: Array.isArray(bookIds) ? bookIds : String(bookIds)
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean)
+        .map(x => Number.isNaN(Number(x)) ? x : Number(x)),
+    };
+
+    try {
+      // Send token both as query param and Bearer header
+      const url = `/api/users?token=${encodeURIComponent(token)}`;
+
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`HTTP ${res.status} - ${text}`);
+      }
+
+      const data = await res.json();
+      setResult(data);
+    } catch (e) {
+      setError(e.message || String(e));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: 520, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <h2>Create User</h2>
+      <div style={{ display: 'grid', gap: 12 }}>
+        <label>
+          Name
+          <input value={name} onChange={e => setName(e.target.value)} style={{ width: '100%' }} />
+        </label>
+        <label>
+          Email
+          <input value={email} onChange={e => setEmail(e.target.value)} style={{ width: '100%' }} />
+        </label>
+        <label>
+          Number
+          <input value={number} onChange={e => setNumber(e.target.value)} style={{ width: '100%' }} />
+        </label>
+        <label>
+          Book IDs (comma-separated)
+          <input
+            value={Array.isArray(bookIds) ? bookIds.join(',') : bookIds}
+            onChange={e => setBookIds(e.target.value)}
+            style={{ width: '100%' }}
+          />
+        </label>
+        <button onClick={createUser} disabled={loading}>
+          {loading ? 'Submitting…' : 'Submit'}
+        </button>
+      </div>
+
+      {error && (
+        <pre style={{ color: 'crimson', whiteSpace: 'pre-wrap', marginTop: 16 }}>
+          Error: {error}
+        </pre>
+      )}
+
+      {result && (
+        <pre style={{ background: '#f6f8fa', padding: 12, marginTop: 16 }}>
+          {JSON.stringify(result, null, 2)}
+        </pre>
+      )}
+    </div>
+  );
+}
+

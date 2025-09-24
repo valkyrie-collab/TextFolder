@@ -1,0 +1,18 @@
+//Advantegs of extending threads//
+1. You have more control over the ghread behavior and properties
+2. you can access the threads methods and fields directly from your sub class
+3. you can create a new thread for each task
+
+//Disadvateages of extending threads//
+1. you can only extends on class in java so your subclass cant extend any other class
+2. your class is tightly coupled to the thread class wich may make it difficult to maintain
+
+//Advantages of implementing a runnable and creating a thread instance with it//
+1. you can extends any class and still implement Runnable
+2. your class is loosely coupled to the thread class which make it easier to maintain
+3. you can use anonymous classes lambda expression or method references to very quickly describe thread behavior.
+
+//Disadvates of Implementing a runnable and creating a Thread instance with it//
+1. you do have less control over the threads behavior and properties.
+# in othre worlds you cannot access the thread methods and fields directly from the run method.
+

@@ -1,0 +1,125 @@
+{
+    "editor.fontFamily": "Cascadia Code, Semibold",
+    "C_Cpp.default.compilerPath": "f:\\C++_Programing\\.vscode\\c_cpp_properties.json",
+    "editor.fontSize": 24,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "workbench.iconTheme": "material-icon-theme",
+    "code-runner.runInTerminal": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "code-runner.saveFileBeforeRun": true,
+    "terminal.integrated.fontSize": 18,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "cmake.configureOnOpen": false,
+    "editor.codeActionsOnSave": {
+        
+    
+
+    },
+    "editor.parameterHints.enabled": false,
+    "java.project.sourcePaths": ["src"],
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "cmake.showOptionsMovedNotification": false,
+    "redhat.telemetry.enabled": false,
+    "background.editorBackgrounds": [
+        "/home/rajarshi/Pictures/Download/FighterBackgroundBlur.png"
+    ],
+    "background.windowBackgrounds": [],
+    "java.jdt.ls.java.home": "",
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        {
+            "column": 80,
+            "color": "#00FF0010"
+        },
+        {
+            "column": 100,
+            "color": "#BDB76B15"
+        },
+        {
+            "column": 120,
+            "color": "#FA807219"
+        }
+    ],
+    "editor.unicodeHighlight.includeComments": true,
+    "workbench.colorCustomizations": {
+        "[Default Dark Modern]": {
+            "tab.activeBorderTop": "#00FF00",
+            "tab.unfocusedActiveBorderTop": "#00FF0088",
+            "textCodeBlock.background": "#00000055"
+        },
+        "editor.wordHighlightStrongBorder": "#FF6347",
+        "editor.wordHighlightBorder": "#FFD700",
+        "editor.selectionHighlightBorder": "#A9A9A9"
+    },
+    "workbench.editor.revealIfOpen": true,
+    "workbench.tree.indent": 20,
+    "emmet.variables": {
+        "lang": "en"
+    },
+    "cSpell.diagnosticLevel": "Hint",
+    "trailing-spaces.backgroundColor": "rgba(255,0,0,0.1)",
+    "trailing-spaces.includeEmptyLines": false,
+    "terminal.integrated.tabs.hideCondition": "never",
+    "terminal.integrated.enablePersistentSessions": false,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.detectJdksAtStart": false,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.debug.settings.hotCodeReplace": "auto",
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.maxConcurrentBuilds": 8,
+    "java.sources.organizeImports.staticStarThreshold": 1,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "/usr/lib/jvm/jdk-21.0.5-oracle-x64"
+        }
+    ],
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "env": {
+                "JAVA_HOME": "/usr/lib/jvm/jdk-21.0.5-oracle-x64"
+            },
+            "args": [
+                "--rcfile",
+                "/home/rajarshi/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
+            ]
+        },
+        "JavaSE-21 LTS": {
+            "overrideName": true,
+            "env": {
+                "JAVA_HOME": "/usr/lib/jvm/jdk-21.0.5-oracle-x64"
+            },
+            "path": "bash",
+            "args": [
+                "--rcfile",
+                "/home/rajarshi/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/.bashrc"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.linux": "JavaSE-21 LTS",
+    "maven.terminal.customEnv": [
+        {
+            "environmentVariable": "JAVA_HOME",
+            "value": "/usr/lib/jvm/jdk-21.0.5-oracle-x64"
+        }
+    ],
+    "java.import.gradle.java.home": "/usr/lib/jvm/jdk-21.0.5-oracle-x64",
+    "maven.executable.path": "/home/rajarshi/.config/Code/User/globalStorage/pleiades.java-extension-pack-jdk/maven/latest/bin/mvn",
+    "vscode-edge-devtools.webhint": false
+}

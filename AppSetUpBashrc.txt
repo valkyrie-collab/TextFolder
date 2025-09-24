@@ -1,0 +1,3 @@
+//sudo gedit .bashrc
+//export PATH="$HOME/Documents/ApplicationFolder/<ApplicationFolderName>/<Folder where The .sh or .file is located>:PATH"
+// source ~/.bashrc

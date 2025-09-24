@@ -1,0 +1,30 @@
+rm -rf /home/rajarshi/Documents/ApplicationFolder/xilinx
+gedit ~/.bashrc
+
+//find and delete
+source /home/rajarshi/Documents/ApplicationFolder/xilinx/14.7/ISE_DS/settings64.sh
+source ~/.bashrc
+
+//if any desktop variable
+rm -f ~/.local/share/applications/ise.desktop
+rm -f ~/.local/share/applications/impact.desktop
+rm -f ~/.local/share/applications/planahead.desktop
+
+//any symbolic link
+sudo rm -f /usr/local/bin/ise
+sudo rm -f /usr/local/bin/impact
+sudo rm -f /usr/local/bin/planahead
+
+//Xilinx may have installed some extra shared libraries. To check:
+
+ldconfig -p | grep xilinx
+
+//If any Xilinx-related libraries appear, remove them manually or using:
+
+sudo rm -f /usr/lib/libxilinx*
+sudo rm -f /usr/lib64/libxilinx*
+
+//not to show xilinx load file
+source /home/rajarshi/Documents/ApplicationFolder/xilinx/14.7/ISE_DS/settings64.sh > /dev/null 2>&1
+
+

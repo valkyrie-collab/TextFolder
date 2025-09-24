@@ -1,0 +1,45 @@
+1. in "find-by-teacher-Id" find By Id/Username will take token as to find teacher and it student same goes for student "find-by-student-id"
+
+2.POST-MAPPING -> will take post as request GET request will not work same goes for others 
+ #the api route is http//localhost:8080/teacher/save-teacher
+ #http//localhost:8080/teacher/update-teacher
+ #http//localhost:8080/student/save-student
+ #http//localhost:8080/student/update-student
+ #http//localhost:8080/marks/save-marks
+ #http//localhost:8080/marks/update-marks
+ #http//localhost:8080/user/sign-in
+ #http//localhost:8080/user/log-in
+ #http//localhost:8080/user/save-teacher
+ #http//localhost:8080/user/save-student
+
+3. GET-MAPPING -> will take GET as Request only (http//localhost:8080) 
+  #/teacher/find-teacher-by-class
+  #/teacher/find-teacher-by-id
+  #/teacher/find-teachers-by-name
+  #/teacher/find-teachers-by-father-name
+  #/teacher/find-teachers-by-mother-name
+  #/student/find-student-by-id
+  #/student/find-students-by-father-name
+  #/student/find-students-by-mother-name
+  #/student/find-students-by-name
+  #/student/find-student-by-stander-and-section
+  #/student/find-students-by-teacher-id
+  #/marks/find-marks-by-marks-id
+  #/marks/find-marks-by-student-id
+
+4. DELETE-MAPPING -> will take only DELETE as Request only(http//localhost:8080)
+  #/teacher/delete-teacher-by-id
+  #/student/delete-student-by-id
+  #/student/delete-students-by-stander-and-section
+  #/marks/remove-marks-by-student-id
+
+5.Only admin can sign in and log in that means others can only log in beacause
+  there is no way a teacher can entery her/his data themselves and same goes 
+  for students also
+
+6. RequestParam means with url it will cary data like this (http//localhost:8080/teacher/find-teacher-by-id?id=exampleId)
+   RequestBody means it will take json data same as class data
+
+7. to use docker compose run "docker compose up --build" and then after completing "docker compose down"
+
+8. wherever dought ask me

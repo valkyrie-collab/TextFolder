@@ -1,0 +1,16 @@
+"{\"id\":" + wrapper.getId() +
+ ",\"name\":" + wrapper.getName() +
+ ",\"description\":" + wrapper.getDescription() +
+ ",\"category\":" + wrapper.getCategory() +
+ ",\"price\":" + wrapper.getPrice() +
+ ",\"brand\":" + wrapper.getBrand() +
+ ",\"quantity\":" + (wrapper.getQuantity() - order.getQuantity()) +
+ ",\"color\":" + wrapper.getColor() +
+ ",\"size\":" + wrapper.getSize() +
+ ",\"variant\":" + wrapper.getVariant() +
+ ",\"discount\":" + wrapper.getDiscount() +
+ ",\"status\":" + wrapper.getStatus() +
+ ",\"searchKeyword\":" + wrapper.getSearchKeyword() +
+ ",\"rating\":" + wrapper.getRating() +
+ ",\"shippingInformation\":" + wrapper.getShippingInformation() +
+ "}", token //",\"sellerId\":" + wrapper.getS +
