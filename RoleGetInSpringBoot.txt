@@ -1,0 +1,13 @@
+public List<String> getRoles(String token) {
+    return getClaims(token, claims -> {
+        Object roles = claims.get(roles);
+        if (roles instanceof List<?>) {
+            // Cast safely to List<String>
+            return ((List<?>) roles).stream()
+                    .filter(obj -> obj instanceof String)
+                    .map(Object::toString)
+                    .toList();
+        }
+        return Collections.emptyList();
+    });
+}

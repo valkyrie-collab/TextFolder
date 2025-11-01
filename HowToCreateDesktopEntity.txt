@@ -1,0 +1,16 @@
+//Go to this location "/usr/share/applications/"
+//Create applicaiton file name like<MyApp.desktop>;
+//Open it with gedit "gedit MyApp.desktop"
+//write this following script "
+	[Desktop Entry]
+	Version=1.0
+	Name=My Application
+	Comment=This is my custom application
+	Exec=/path/to/your/application_or_script
+	Icon=/path/to/icon.png
+	Terminal=false
+	Type=Application
+	Categories=Utility;Application;
+"
+//chmod +x MyApp.desktop
+//if do not run "gtk-update-icon-cache"

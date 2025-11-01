@@ -1,0 +1,18 @@
+//Go to the flutter bin folder
+
+//open that folder in terminal 
+
+//in the terminal write "pwd" to get full path of the flutter bin
+
+//then open "gedit .bashrc" in home folder
+
+//write the this command in the bashrc file: 'export PATH="$PATH:/home/rajarshi/dev/flutter/bin"'
+
+//after that reopen the terminal and check if the flutter is there by writting "which flutter"
+
+//install android studio and in the SDK Manager install(android command lines, cmake, googles things ets and hit enter)
+
+//then write "flutter doctor"
+
+//give the necessary commands to install software require
+//

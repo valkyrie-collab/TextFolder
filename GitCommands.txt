@@ -1,0 +1,130 @@
+//To save username and Password//
+1. git config --global user.name "valkyrie"
+2. git config --global user.email "rajarshibiswas5678@gmail.com"
+
+1. git status -> give status of the git repository
+
+//create local repository//
+1. git init -> it will give master branch
+2. git init -b main -> here"-b" means branch and it will create branch main
+3. git branch -M main -> to convert master branch to main
+
+//how to add file to a git//
+1. git add <filename> -> Staged file
+2. git add . -> to stage all the file in the folder
+
+//To see all commits(aka Staging)//
+1. git log
+
+//how to commit//
+1. git commit -m "Commit Message" -> -m stands for message of the commit
+
+//how to commit on the same file//
+1. git add <SameFileName>
+2. git commit -m "Commit Message"
+
+//Without staging//
+1. git commit -a -m "Commit Message"
+
+//to show changes in the file//
+1. git diff
+2. git diff --staged -> if to check changes after staging
+
+//How to remove file From git//
+1. git rm --cached <filename>
+
+//How to collaborate with every one//
+1. we have to remote repository
+(doing public)
+2. git clone <http link> -> For Copying project from git hub
+3. to connect local repository we have to use SSH
+4. ssh-keygen -o(only one time) use to set up key so that we don't have to use SSH from git-hub all the time
+5. the above ssh-keygen will be present in the .ssh folder
+6. git remote add origin git@github.com:valkyrie-collab/git-corse.git
+7. git push -u origin main
+8. git push origin main -> to push to the main branch
+9. git remote -v -> to see origin
+
+// How to use Tags and push//
+1. git tag -a <version text> -m "tag message" -> to give version number
+2. git tag -> to get the version
+3. git show <version number>
+4. git push origin <versionNumber>
+
+//How to create branch and travel form one to another//
+1. git switch -c <BranchName> -> which branch is active indicated by "*" like *<BranchName>
+2. git switch <BranchName> -> to Switch form branch to branch
+3. git branch -> gives only local branches
+4. git branch --all -> local as well as remote branch
+5. git branch -> to move to the before branch
+
+//delete a branch//
+1. git branch -d <BranchName>
+
+//merge branch//
+1. git merge <BranchName> -> Must be on the main branch
+
+//How to pull//
+1. git pull origin <BranchName> -> must be done before merge
+
+//Rebase//
+#Use to remove the history branch form the main branch
+1. git rebase <BranchName>
+
+//git merge conflict//
+#When we do some chnages in the same line of the same file of different branches and 
+#we try to merge them thats when merge confilict occure 
+1. git diff -> to check the differences
+
+//Forking//
+#Mean copying the project from the main contributer to my own git
+#It can only be done by other contributers
+
+//Git pull request//
+#It basically mean when you are forking other person code and making changes to it and creating its (forked project) pull request mean you want to tell the owner that this are the
+changes and fixes you have made and if the code satisfy the owner then he/she will merge to the required branch
+
+//how to add ssh key//
+# ls ~/.ssh
+
+# ssh-keygen -t ed25519 -C "rajarshibiswas5678@gmail.com"
+
+1.valkyrie@valkyrie-pc:~/Documents/Programming/Spring_Programming/ShoppingPractice$ sudo chown valkyrie:valkyrie ~/.ssh/SSH_KeyContainingFile
+
+2.valkyrie@valkyrie-pc:~/Documents/Programming/Spring_Programming/ShoppingPractice$ ssh -T git@github.com
+  git@github.com: Permission denied (publickey).
+
+3.valkyrie@valkyrie-pc:~/Documents/Programming/Spring_Programming/ShoppingPractice$ eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/SSH_KeyContainingFile
+  Agent pid 1626902
+  Enter passphrase for /home/valkyrie/.ssh/SSH_KeyContainingFile: 
+  Identity added: /home/valkyrie/.ssh/SSH_KeyContainingFile (valkyrie@valkyrie-pc)
+
+4.valkyrie@valkyrie-pc:~/Documents/Programming/Spring_Programming/ShoppingPractice$ ssh -T git@github.com
+  Hi valkyrie-collab! You've successfully authenticated, but GitHub does not provide shell access.
+
+5.valkyrie@valkyrie-pc:~/Documents/Programming/Spring_Programming/ShoppingPractice$ 
+
+//how to replace changes with previce git commit//
+1.git reset --hard 178c8c94
+
+//How to remove origin//
+1. git remote remove origin
+
+//how clone required branch using HTTPS//
+1.git clone -b branch_name --single-branch https://github.com/user/repo.git
+
+//pulling exiting modified branch//
+1.git pull origin main --rebase
+2.git rebase --continue -> if there any merge conflict
+
+//how to use SSH to pull code
+1.valkyrie@valkyrie-pc:~/Documents/test/DFS$ git remote add origin git@github.com:valkyrie-collab/DFS.git
+2.valkyrie@valkyrie-pc:~/Documents/test/DFS$ git pull origin main
+
+//how to use ssh to get branches
+1. create a folder
+2. git init
+3. git remote add origin git@github.com:valkyrie-collab/SecondLibraryManagement.git
+4. git fetch origin
+5. git checkout -b authentication-docker origin/authentication-docker

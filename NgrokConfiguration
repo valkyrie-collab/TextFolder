@@ -1,0 +1,9 @@
+#Ngrok Configuration
+1.First download Ngrok
+2.sudo tar -xvzf ~/Downloads/ngrok-v3-stable-linux-amd64.tgz -C /usr/local/bin
+3.then do the sign-in in the website of ngrok after this run the comand
+4.ngrok config add-authtoken 34ZMoVMf5Q9TX2CZmrlRWHfhKu0_4KeUd3p3TFzeKXxmgvN1f<This is My token>
+	for other it might be like this ngrok config add-authtoken <Your token>
+5.ngrok http <required port number> eg: ngrok http 5173
+6.Then hit this link https://nongalvanized-letisha-unrifted.ngrok-free.dev. It might be different for others.
+

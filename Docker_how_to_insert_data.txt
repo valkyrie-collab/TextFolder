@@ -1,0 +1,55 @@
+PS C:\Users\bossr> docker exec friendly_morse
+docker: 'docker exec' requires at least 2 arguments
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+See 'docker exec --help' for more information
+PS C:\Users\bossr> docker exec friendly_morse bash
+PS C:\Users\bossr> docker exec friendly_morse ls -a
+.
+..
+.dockerenv
+afs
+bin
+boot
+dev
+etc
+home
+lib
+lib64
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+
+PS C:\Users\bossr> docker exec friendly_morse ls/temp
+OCI runtime exec failed: exec failed: unable to start container process: exec: "ls/temp": stat ls/temp: no such file or directory: unknown
+
+PS C:\Users\bossr> docker exec friendly_morse ls/tmp
+OCI runtime exec failed: exec failed: unable to start container process: exec: "ls/tmp": stat ls/tmp: no such file or directory: unknown
+
+PS C:\Users\bossr> docker exec friendly_morse ls /tmp
+hsperfdata_root
+
+PS C:\Users\bossr> docker cp C:\Users\bossr\OneDrive\Documents\Programming\JetBrainsProgramming\IntelliJProgramming\SpringProgramming\docker-link-springboot\target\rest-demo-in-docker.jar friendly_morse:/tmp
+Successfully copied 21MB to friendly_morse:/tmp
+
+PS C:\Users\bossr> docker exec friendly_morse ls /tmp
+hsperfdata_root
+rest-demo-in-docker.jar
+
+PS C:\Users\bossr> docker commit --change='CMD java -jar /tmp/rest-demo-in-docker.jar' friendly_morse valkyrie/rest-demo-docker-version:v3
+
+PS C:\Users\bossr> docker run -p 8080:8080 valkyrie/rest-demo-docker-version:v3
+
+PS C:\Users\bossr> docker-compose up --build
+
+PS C:\Users\bossr> docker-compose down

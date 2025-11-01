@@ -1,0 +1,152 @@
+Q. What is Defination of a Problem.
+Ans. In AI and computer science a problem is fully specified by its states, 
+     actions, constraints and goal so that a algorithm can search for a solution.
+
+Q. What is Characteristic of problem?
+Ans. Decomposablity: Wheather it can be broken into smaller subproblem that are 
+		     solved independently and combined.
+     
+     Deterministic vs uncertain: where next states outcome are predictable or 
+				 involve uncetainity and incomplete information.
+
+     Static vs dynamic: Whether the environment stays the same while solving, 
+			or changes over time and must be tracked.
+
+     Fully vs Partially Observed: Whether all needed information is available, 
+				  or some is hidden/nosiy and  must be inferred.
+
+     Single Agent and Multi Agent: Whether only one decision maker acts or 
+				   multiple agents also matters.
+
+     State vs path solution: Wheather only the final goal matters or the exact 
+			     sequence of steps also matters
+
+     Optimal vs satisficing: Whether the best solution is required or any 
+			     solution that meets constraints is acceptable.
+     
+      Knowledge requirement: How much domain knowledge or heuristics are needed 
+			     to guide search or learning.
+
+      Time and resource limits: Constraints on computation time memory data or 
+				energy that shape feasible methods
+
+      Data availablity and learnablity: Whether enough data exist to learn 
+					models and how well the problem supports 
+					generalization.
+
+Q. State space search.
+Ans. State space search is a way to solve problems by exploring possible 
+     situations and moves until a goal is reached. State space representation is 
+     how those states actions and costs are formally described so an alogorithm 
+     can search them. Problem formulation is the step of defining initial state, 
+     action, goal test and costs so the search can be run
+
+  i. View the problem as a graph where nodes are states and edges are actions that 
+     move from one state to another.
+
+  ii. Common strategis include uninformed and informed search
+ 
+  iii. A Solution is a sequence of actions that transforms the initial state 
+       into a goal state often minimizing a path cost if optimality is required.
+
+Q. State space representation
+Ans. i. Define the set of states S, the action set A, an Action(s) function 
+        giving legal actions in s, a Result(s, a) function for the next state, 
+        and a Cost(s, a) function for step cost.
+     
+     ii. Include the initial state sO and GoalTest(s) that returns true for 
+         goal states; this makes the problem precise and machine-searchable. 
+     
+     iii. Good representations keep the branching factor and state size small to 
+          make search efficient and avoid unnecessary duplicates.
+
+Q. Problem Formulation
+Ans. Initial State: the exact starting configuration.
+     Actions/Operators: legal moves with precondition and effects.
+     Transition model: how each action changes the state.
+     Goal Test: a precise check for success.
+     Path Cost/utility: what to optimize. 
+
+Q. Intelligent Agent
+Ans. An intelligent agent is a system that sence its environment decides what 
+     to do and acts to achieve goals often improving performance over time. 
+     It maps to actions to maximize a perfomance measure under given conditions.
+ 
+Q. Type of Intelligent Agents
+Ans. Simple reflex: Chooses actions using condition-action rules based only on 
+		    the current percept no memory of the past.
+
+     Model-based reflex: Keeps an internal state to track aspects of the world 
+			 not directly obseved improving decisions.
+
+     Goal-based: Uses goal to evaluate possible actions and select those that 
+		 move it closer to goal states.
+
+     Utility-based: Uses a utility function to trade off among goals and 
+		    uncertainties selection actions with highest expected 
+		    utility.
+
+     Learning agent: Improves its performance from experience via learning 
+		     components.
+
+Q. Properties of intelligent agents
+Ans. Autonomy: Operate without constant human guidance controlling their own 
+	       actions
+
+     Reactivity: Perceive changes and respond in a timely manner.
+
+     Proactiveness: Take initiative to pursue goals agents via communication
+		    protocols.
+
+     Rationality: Select actions expected to maximize the performance measure 
+		  given knowledge and resource.
+
+     Adaptivity/Learing: Improve behavior over time from data and feedback.
+
+     Robustness: Handle noise,uncertainty and partial observability.
+
+     Efficiency: User time and memory effectively balance optimally with 
+		 computational limits.
+
+     Robustness:Handle noice uncertinity and partial observability
+
+     Efficiency: Use time and memory effectively balance optimality with 
+		 computational limits
+
+     Safety and reliability: Avoid harmful actions and handle failures 
+			     gracefully when operating in real settings
+
+Q. Heuristic Search
+Ans. Uses a heuristic function h(n) to rank or prioritize nodes that appear 
+     closer to the goal Ex: Greedy Best-First and A*.
+
+Q. Uninformed Search
+Ans. Explores the state space using only the problem defination, with no 
+     estimate of goal proximity example BFS, DFS, Uniform-Cost and Iterative 
+     Deepening.
+
+Q. BFS
+Ans. Expands Nodes in increasing depth using FIFO queue. Time Complexity O(n^m)
+
+Q. DFS
+Ans. Expands the deepest unexpanded node first using a LIFO stack or recursion. 
+     Time Complexity O(n * m)
+
+Q. Application of AI. Real World application in various fields
+Ans. Healthcare: Medical imaging and diagnosis assist doctors by spotting patterns 
+		 in X-rays, MRI and CT scans for early diseases detection.
+     
+      Finance: Fraud detection flags unusual transaction in real time and reduces 
+	      risk exposure.
+	
+      Retail and e-commerce: Recommendation engines personalize products and 
+			     content increasing conversions.
+
+      Manufacturing: Predictive maintainance prevents equipment failure by 
+		     analyzing sensor data
+      
+      Security and safety: Anomaly detection monitors networks and cloud workloads 
+			   for cyber threats
+
+      Science and R&D: Materials and drug discovery models secreen candidates 
+		       and predict properties

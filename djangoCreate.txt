@@ -1,0 +1,14 @@
+python -m venv env 
+env\Scripts\activate
+pip install django
+django-admin --version\\ to check the version
+django-admin startproject MyProject
+cd MyProject\
+python manage.py runserver
+tar por http//127.0.0.1:8000/ 
+eta open korbi
+
+//app creation
+same MyProject folder a thakbe terminal ta
+likbi python manage.py startapp myapp
+

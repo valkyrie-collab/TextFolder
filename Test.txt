@@ -1,0 +1,95 @@
+import React, { useEffect, useState } from "react";
+
+function ProductsPage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading]   = useState(true);
+  const [error, setError]       = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const load = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetch("http://localhost:8080/product/find-all-products", {
+          method: "GET",
+          signal: controller.signal,
+          headers: { Accept: "application/json" },
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        setProducts(Array.isArray(data) ? data : []);
+      } catch (e) {
+        if (e.name !== "AbortError") setError(e.message || "Failed to fetch");
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+    return () => controller.abort();
+  }, []);
+  // Fetching in an Effect with cleanup matches React guidance for data loading and avoiding state updates post-unmount [web:81][web:84].
+
+  if (loading) return <p>Loading…</p>;
+  if (error)   return <p style={{ color: "red" }}>Error: {error}</p>;
+
+  const toImgSrc = (img) => {
+    if (!img) return "";
+    // Prefer backend URL if available, otherwise use Base64 data URL
+    if (img.url) return img.url;
+    const mime = img.type || "image/jpeg";
+    return `data:${mime};base64,${img.data || ""}`;
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+      {products.map((p) => {
+        const firstImage = p.images && p.images.length ? p.images[0] : null;
+        const imgSrc = toImgSrc(firstImage);
+
+        const mfg = p.manufacturingDate
+          ? new Date(p.manufacturingDate).toLocaleDateString()
+          : "—";
+        const exp = p.expirationDate
+          ? new Date(p.expirationDate).toLocaleDateString()
+          : "—";
+
+        return (
+          <article key={p.id} className="rounded-2xl bg-white/15 backdrop-blur-lg border border-white/30 shadow-xl p-4">
+            <div className="w-full h-48 overflow-hidden rounded-xl mb-3 bg-black/10">
+              {imgSrc ? (
+                <img
+                  src={imgSrc}
+                  alt={p.name || "Product image"}
+                  className="w-full h-48 object-cover"
+                />
+              ) : (
+                <div className="w-full h-48 flex items-center justify-center text-gray-400">
+                  No Image
+                </div>
+              )}
+            </div>
+
+            <h3 className="text-xl font-semibold text-white">{p.name || "Unnamed"}</h3>
+            <p className="text-white/90 mt-1">{p.description || "No description provided."}</p>
+
+            <div className="mt-3 text-sm text-white/80">
+              <p>Manufactured: {mfg}</p>
+              <p>Expires: {exp}</p>
+              <p>Seller: {p.sellerId || "—"}</p>
+            </div>
+
+            <div className="mt-4">
+              <button className="rounded-xl bg-white/15 hover:bg-blue-400/30 transition-colors backdrop-blur-lg border border-white/30 shadow-xl h-9 px-4 text-black font-bold">
+                View
+              </button>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+export default ProductsPage;
+

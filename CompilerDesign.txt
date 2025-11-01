@@ -1,0 +1,173 @@
+Q. Role of Compiler? / What is compiler
+Ans. A Compiler is a piece of complex software whose job is the convert source
+     code to machine understandable code(low level / binary code) in one go.
+
+Q. what is interpretor?
+Ans. A program that reads code one line at a time turn each line into action 
+     and runs it right away it stops at the first error ir finds which makes 
+     fixing mistakes easier but can run slower.
+
+Q. What is Assembler?
+Ans. A program that turns assembly language into machine code that the 
+     processor can understand and can run it.
+
+Q. What is Linker?
+Ans. A tool that takes compiled pieces and joins them into one final program 
+     fixing up referecnes so code can call functions ans use data across files
+
+Q. What is loader?
+Ans. A part of the operation system that puts the program into memory sets it 
+     up and start its running
+
+Q. what is cross assembler?
+Ans. A cross assembler is an assembler that runs on one kind of computer but 
+     creates machine code for a different kind of processor or device. its lets 
+     developers build code for small or embedded systems on a more powerful PC, 
+     then copy the output to the target to run
+
+Q. What is Lexical Analysis?
+Ans. Reads the source code as characters and group them into tokens like 
+     identifiers, Separators, Keywords, Operators, Constant, SpecialSymbol 
+
+Q. What is Syntax Analysis
+Ans. Checks if the token sequence follow the grammar rules of the language and 
+     builds a tree that shows the structure of the code
+
+Q. what is Schematic Analysis
+Ans. Checks meaning and type like "is the variable declared?" and "are these 
+     types compatible?" and annotates the tree with type and scope info.
+
+Q. what is Intermediat code generation
+Ans. Converts the checked program into a simple machine independent form 
+     that is easier to optimize and later translate
+
+Q. what is code optimization
+Ans. Improves the intermediat code to run faster or use less memory without 
+     changing what the program does
+
+Q. What is Target Code generation
+Ans. Turns the optimized intermidiate code into machine code or assembly 
+     for the specific CPU, arranging register memory and instruction so it can 
+     run.
+
+Q. What is Grammer?
+Ans. It is the stander way of representing a language.
+
+G={V, T, P, S}
+
+V=Variable, T=Terminal, P=ProductionRule, S=StartSymbol
+
+S -> aSb/null
+null, aSb, null, ab{a(null)b}, aaSbb, aaaSbbb, ..., a^nb^n
+
+S -> SS
+S -> aSb
+S -> bSa
+S -> null{Epsilon}
+null, aSbbSa, abba / bSabSa, baba
+[na(w)=nb(w)] number of a and number of b will be equal 
+
+Q. Ambigous Grammer:
+Ans. For ambigous grammer exist more than one drivation for any word thata belongs
+     to Grammar
+
+Q. Unambigous Grammer:
+Ans. For unambigous Grammer there exist exactly one derivation for any word that 
+     belongs to Grammar
+
+Example:
+G:S -> Sa | aS | a
+
+G:S -> AB
+A -> aA | b
+B -> bB | a
+W: abba
+
+G: E->E + E | id
+W: id + id + id
+* When Left and Right are same then as the starting then ambigous
+
+Convert ambigous to unambigous
+* G:E -> E + E | id
+  E -> E + T | T
+  T -> id
+
+Q. Right Recursive Grammar
+Ans. A -> aA | b {Suppose non-terminal A is reappearing as the right Most non-termmial
+     A at the right hand side of the Grammer So it is right recursive}
+
+     [A => a*b]
+
+Q. Left Recursive Grammar
+Ans. A -> Aa | b {Suppose non-terminal A is reappearing as the Left Most non-termial
+     A at the right hand side of the Grammer So it is left recursive}
+
+     [A => ab*] 
+
+Q. Type Of Compilers
+Ans. 1. Native Compilers: Native compilers is a compiler which is used to 
+                          convert a source code into target code for the same 
+			  machine on which it runs
+
+     2. Cross Compilers: Cross Compilers which convert a source code of one 
+			 machine into target code of another machine
+
+     3. Source to Source Compiler: Compilers which converts one hgh level 
+				   language source code into another high level 
+				   language target code
+
+     4. ByteCode Compiler: Compiler which convert hgih level larguage source 
+			   code into byte code is called ByteCode Compiler.
+     
+     5. JIT(Just In Time) Compiler: Compiler which translate byte code into 
+				    machice code at runtime
+
+Q. Lexical Analysis
+Ans. It takes Stream of Characters as input and covert each of them to token. 
+     Tokenization, Lexer [program that devide Token], Scanner
+
+* Token: Identifier, Seperator, keyword, Operator, Constants, SpecialCharacter
+	Identifier: The things programmer defining like [x, y]
+	Seperator: Like [, .]
+	Keyword: int, float
+	Operator: [+, -]
+	Constant: [values]
+	SpecialCharacter: [$]
+
+1.Tokenization
+2.Give Error Message: Exceeding length, Unmatched String, Illegal Character
+3.Eliminate Commets, White Space
+
+[Here we use Finite automate], [DFA], [NFA] use to do tokenization
+
+Q. Lexeme vs Token
+Ans. Lexeme				Token
+     i.Lexeme is a sequence of Char |   i.Tokens are the symbolic name for the
+       from the input that match a  |     entities that make up the text of the
+       pattern			    |     program. ex: ID, Constant, Keyword,
+					  Operator, punctuation, LiteralString
+
+Q. Finding First() & Follow();
+Ans. First(A) Contains all terminals present in first place of the every 
+     String derived by A.
+	1. S -> abc | def | gef; first of S is a, d, g [first of grammer]
+	2. First(terminal) = terminal
+	3. First(E) = E
+Example:
+	S -> ABC | ghi | jkl : F(ABC) -> A -> (a, b, c, g, h, i, j, k, l)
+	A -> a | b | c : a, b, c
+	B -> b : b
+	D -> d : d
+     
+      Follow(A) contains set of all terminals present immediate in right of 'A' 
+	Rules: 1. Follow of start symbol is $. FO(A)={$}.
+	       2. S->ACD C->a|b
+		  Fo(A)=First(C)={a, b}
+		  Fo(D)=Follow(S)={$}
+	       3. S -> aSbS | bSaS | E *Follow never contains E
+Q. what is parser?
+Ans. A parser is a program that generates a parse tree for the given string 
+     if the string is generated from the underlying grammar
+     
+     
+     

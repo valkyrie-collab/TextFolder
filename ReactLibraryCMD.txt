@@ -1,0 +1,17 @@
+Create ReactProject:
+1. npm create vite@latest E-CommersApp
+2. javascript
+3. cd my project
+
+Install tailwind css
+1. npm install -D tailwindcss postcss autoprefixer
+2. npx tailwindcss init -p
+
+Router
+1. npm install react-router-dom
+
+Install gsap
+1.npm i gsap @gsap/react
+
+Glassmorphism
+1.bg-white/15 backdrop-blur-lg border border-white/30 shadow-xl

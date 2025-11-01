@@ -1,0 +1,66 @@
+//First turn of the secure boot//
+
+swapon --show
+
+swapoff -a
+
+rm /.swap.img
+
+sudo dd if=/dev/zero of=/swap.img count=8192 bs=1MiB
+
+sudo chmod 600 /.swap.img
+
+sudo mkswap /.swap.img
+
+sudo swapon /.swap.img
+
+echo '/.swap.img none swap sw 0 0' | sudo tee -a /etc/fstab
+
+df -h
+<note the main diskName>
+
+sudo filefrag -v /.swap.img
+
+sudo gedit /etc/default/grub
+
+sudo udpdate-grub
+
+#disable secure boot in the bios
+sudo systemctl hibernation
+
+//To Make Hibernation Button//
+
+sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
+
+sudo apt install polkitd-pkla
+
+sudo gedit /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla
+
+#place this in the open gedit file#
+[Re-enable hibernate by default in upower]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+
+[Re-enable hibernate by default in logind]
+Identity=unix-user:*
+Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
+ResultActive=yes
+
+sudo nano /etc/polkit-1/rules.d/10-enable-hibernate.rules
+
+#palce it in the open file#
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.login1.hibernate" ||
+        action.id == "org.freedesktop.login1.hibernate-multiple-sessions" ||
+        action.id == "org.freedesktop.upower.hibernate" ||
+        action.id == "org.freedesktop.login1.handle-hibernate-key" ||
+        action.id == "org.freedesktop.login1.hibernate-ignore-inhibit")
+    {
+        return polkit.Result.YES;
+    }
+});
+
+install hibernate status button
+
+AND DONE
