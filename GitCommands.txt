@@ -128,3 +128,15 @@ changes and fixes you have made and if the code satisfy the owner then he/she wi
 3. git remote add origin git@github.com:valkyrie-collab/SecondLibraryManagement.git
 4. git fetch origin
 5. git checkout -b authentication-docker origin/authentication-docker
+
+//For linux distros that do not have git preinstalled in their system
+1.install git (sudo apt install git)
+2.initialize git
+3.in .ssh folder create config and give persmission as (chmod 600 config) // there is no extension in the config file
+4.write the following code in the config file
+    Host github.com
+    IdentityFile ~/.ssh/<your ssh key containing file name> // mine is SSHKeyContainingFile
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+5.then enter this command ssh-add ~/.ssh/<your ssh key containing file name> // SSHKeyContainingFile
+6.lastly verify it with `ssh -T git@github.com`
