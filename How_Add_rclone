@@ -1,0 +1,227 @@
+rajarshi@rajarshi-pc:~$ sudo apt install rclone
+
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Starting pkgProblemResolver with broken count: 0
+Starting 2 pkgProblemResolver with broken count: 0
+Done
+The following NEW packages will be installed:
+  rclone
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 16.5 MB of archives.
+After this operation, 62.6 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 rclone amd64 1.60.1+dfsg-3ubuntu0.24.04.4 [16.5 MB]
+Fetched 16.5 MB in 7s (2,408 kB/s)                                             
+Selecting previously unselected package rclone.
+(Reading database ... 252949 files and directories currently installed.)
+Preparing to unpack .../rclone_1.60.1+dfsg-3ubuntu0.24.04.4_amd64.deb ...
+Unpacking rclone (1.60.1+dfsg-3ubuntu0.24.04.4) ...
+Setting up rclone (1.60.1+dfsg-3ubuntu0.24.04.4) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+rajarshi@rajarshi-pc:~$ rclone config
+
+<5>NOTICE: Config file "/home/rajarshi/.config/rclone/rclone.conf" not found - using defaults
+No remotes found, make a new one?
+n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q> n
+
+Enter name for new remote.
+name> gdrive
+
+Option Storage.
+Type of storage to configure.
+Choose a number from below, or type in your own value.
+ 1 / 1Fichier
+   \ (fichier)
+ 2 / Akamai NetStorage
+   \ (netstorage)
+ 3 / Alias for an existing remote
+   \ (alias)
+ 4 / Amazon Drive
+   \ (amazon cloud drive)
+ 5 / Amazon S3 Compliant Storage Providers including AWS, Alibaba, Ceph, China Mobile, Cloudflare, ArvanCloud, Digital Ocean, Dreamhost, Huawei OBS, IBM COS, IDrive e2, IONOS Cloud, Lyve Cloud, Minio, Netease, RackCorp, Scaleway, SeaweedFS, StackPath, Storj, Tencent COS, Qiniu and Wasabi
+   \ (s3)
+ 6 / Backblaze B2
+   \ (b2)
+ 7 / Better checksums for other remotes
+   \ (hasher)
+ 8 / Box
+   \ (box)
+ 9 / Cache a remote
+   \ (cache)
+10 / Citrix Sharefile
+   \ (sharefile)
+11 / Combine several remotes into one
+   \ (combine)
+12 / Compress a remote
+   \ (compress)
+13 / Dropbox
+   \ (dropbox)
+14 / Encrypt/Decrypt a remote
+   \ (crypt)
+15 / Enterprise File Fabric
+   \ (filefabric)
+16 / FTP
+   \ (ftp)
+17 / Google Cloud Storage (this is not Google Drive)
+   \ (google cloud storage)
+18 / Google Drive
+   \ (drive)
+19 / Google Photos
+   \ (google photos)
+20 / HTTP
+   \ (http)
+21 / Hadoop distributed file system
+   \ (hdfs)
+22 / HiDrive
+   \ (hidrive)
+23 / In memory object storage system.
+   \ (memory)
+24 / Internet Archive
+   \ (internetarchive)
+25 / Jottacloud
+   \ (jottacloud)
+26 / Koofr, Digi Storage and other Koofr-compatible storage providers
+   \ (koofr)
+27 / Local Disk
+   \ (local)
+28 / Mail.ru Cloud
+   \ (mailru)
+29 / Microsoft Azure Blob Storage
+   \ (azureblob)
+30 / Microsoft OneDrive
+   \ (onedrive)
+31 / OpenDrive
+   \ (opendrive)
+32 / OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+   \ (swift)
+33 / Pcloud
+   \ (pcloud)
+34 / Put.io
+   \ (putio)
+35 / SMB / CIFS
+   \ (smb)
+36 / SSH/SFTP
+   \ (sftp)
+37 / Sia Decentralized Cloud
+   \ (sia)
+38 / Sugarsync
+   \ (sugarsync)
+39 / Transparently chunk/split large files
+   \ (chunker)
+40 / Union merges the contents of several upstream fs
+   \ (union)
+41 / Uptobox
+   \ (uptobox)
+42 / WebDAV
+   \ (webdav)
+43 / Yandex Disk
+   \ (yandex)
+44 / Zoho
+   \ (zoho)
+45 / premiumize.me
+   \ (premiumizeme)
+46 / seafile
+   \ (seafile)
+Storage> 18
+
+Option client_id.
+Google Application Client Id
+Setting your own is recommended.
+See https://rclone.org/drive/#making-your-own-client-id for how to create your own.
+If you leave this blank, it will use an internal key which is low performance.
+Enter a value. Press Enter to leave empty.
+client_id> 
+
+Option client_secret.
+OAuth Client Secret.
+Leave blank normally.
+Enter a value. Press Enter to leave empty.
+client_secret> 
+
+Option scope.
+Scope that rclone should use when requesting access from drive.
+Choose a number from below, or type in your own value.
+Press Enter to leave empty.
+ 1 / Full access all files, excluding Application Data Folder.
+   \ (drive)
+ 2 / Read-only access to file metadata and file contents.
+   \ (drive.readonly)
+   / Access to files created by rclone only.
+ 3 | These are visible in the drive website.
+   | File authorization is revoked when the user deauthorizes the app.
+   \ (drive.file)
+   / Allows read and write access to the Application Data folder.
+ 4 | This is not visible in the drive website.
+   \ (drive.appfolder)
+   / Allows read-only access to file metadata but
+ 5 | does not allow any access to read or download file content.
+   \ (drive.metadata.readonly)
+scope> 1
+
+Option service_account_file.
+Service Account Credentials JSON file path.
+Leave blank normally.
+Needed only if you want use SA instead of interactive login.
+Leading `~` will be expanded in the file name as will environment variables such as `${RCLONE_CONFIG_DIR}`.
+Enter a value. Press Enter to leave empty.
+service_account_file> 
+
+Edit advanced config?
+y) Yes
+n) No (default)
+y/n> n
+
+Use auto config?
+ * Say Y if not sure
+ * Say N if you are working on a remote or headless machine
+
+y) Yes (default)
+n) No
+y/n> y
+
+<5>NOTICE: If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=GRO-lz5AZtju7zzvehhbKA
+<5>NOTICE: Log in and authorize rclone for access
+<5>NOTICE: Waiting for code...
+<5>NOTICE: Got code
+Configure this as a Shared Drive (Team Drive)?
+
+y) Yes
+n) No (default)
+y/n> n
+
+Configuration complete.
+Options:
+- type: drive
+- scope: drive
+
+- team_drive: 
+Keep this "gdrive" remote?
+y) Yes this is OK (default)
+e) Edit this remote
+d) Delete this remote
+y/e/d> y
+
+Current remotes:
+
+Name                 Type
+====                 ====
+gdrive               drive
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q> q
+rajarshi@rajarshi-pc:~$ mkdir -p ~/GoogleDrive
+
+rajarshi@rajarshi-pc:~$ rclone mount gdrive: ~/GoogleDrive &
+[1] 837219
