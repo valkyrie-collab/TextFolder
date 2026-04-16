@@ -5,7 +5,7 @@ and install all the given commands
 - create a virtual environment using python by writting the following command: python3 -m venv <location>/<foldername>
 - start the virtual environment using source location/foldername/bin/activate
 - then the activated virtual environment run the following commands: "pip install --upgrade pip", "pip install intel-extension-for-pytorch[xpu]" and "pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/xpu"
-
+- then also install this: "pip install ipykernel" and "python -m ipykernel install --user --name <your environment name> --display-name "Python (<your environment name>)" // your environment name = GPU_Acceleration
 ```python
 ```
 import torch
